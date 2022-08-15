@@ -1,0 +1,233 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+li , ul{
+    display: inline-block;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+/*************************
+Utils
+**************************/
+.gray-4F4F4F{
+    color: #4F4F4F;
+}
+.black-333333{
+    color: #333333;
+}
+.gray-828282{
+    color: #828282;
+}
+.flex-direction-column{
+    flex-direction: column;
+}
+.container{
+    max-width: 1360px;
+    margin: 0 auto;
+}
+.d-flex{
+    display: flex;
+}
+.space-between{
+    justify-content: space-between;
+}
+.justify-end{
+    justify-content: flex-end;
+}
+.margin-bot-10{
+    margin-bottom: 1rem;
+}
+.margin-bot-8{
+    margin-bottom: .8rem;
+}
+.margin-top-24{
+    margin-top: 2.4rem;
+}
+.margin-right-8{
+    margin-right: .8rem;
+}
+.margin-left-8{
+    margin-left: .8rem;
+}
+.margin-bot-16{
+    margin-bottom: 1.6rem;
+}
+.margin-bot-75{
+    margin-bottom: 7.5rem;
+}
+.margin-left-16{
+    margin-left: 1.6rem;
+}
+.margin-bot-17{
+    margin-bottom: 1.7rem;
+}
+.margin-top-12{
+    margin-top: 1.2rem;
+}
+.margin-top-67{
+    margin-top: 6.7rem;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.align-items-center{
+    align-items: center;
+}
+.margin-top-126{
+    margin-top: 12.6rem;
+}
+.flex-grow-1{
+    flex-grow: 1;
+}
+.gap-77{
+    gap: 7.7rem;
+}
+.gap-63{
+    gap: 6.3rem;
+}
+.gap-40{
+    gap: 4rem;
+}
+.padd-top-105{
+    padding-top:10.5rem ;
+}
+.margin-top-100{
+    margin-top:10rem ;
+}
+.padd-top-30{
+    padding-top: 3rem;
+}
+.margin-top-50{
+    margin-top: 5rem;
+}
+.margin-bot-64{
+    margin-bottom: 6.4rem;
+}
+.text-align-center{
+    text-align: center;
+}
+.line-height-28{
+    line-height: 2.8rem;
+}
+.width-36{
+    width: 36.62%;
+}
+.width-63{
+    width: 63.2%;
+}
+.gap-52{
+    gap: 5.2rem;
+}
+.gap-68{
+    gap:6.8rem;
+}
+/************
+typographic
+************/
+.f-size-14{
+    font-size: 1.4rem;
+}
+.f-size-16{
+    font-size: 1.6rem;
+}
+.f-size-32{
+    font-size: 3.2rem;
+}
+.f-size-20{
+    font-size: 2rem;
+}
+.f-size-24{
+    font-size: 2.4rem;
+}
+.f-size-36{
+    font-size: 3.6rem;
+}
+.f-size-42{
+    font-size: 4.2rem;
+}
+.f-size-18{
+    font-size: 1.8rem;
+}
+.f-weight-400{
+    font-weight: 400;
+}
+.f-weight-500{
+    font-weight: 500;
+}
+/**************
+Colors
+***************/
+/*************************
+components
+**************************/
+.arrow-orange{
+    padding: .9rem 1.6rem;
+    background: rgba(255, 85, 0, 0.9);
+    border-radius: .8rem;
+}
+.play-icon{
+    padding: 2.1rem 1.9rem 2.2rem 2.4rem;
+    background-color: #FF5500;
+    border-radius: 50%;
+    margin-top: -3rem;
+
+}
+.orange-button{
+    background: linear-gradient(258.57deg, #FF5500 2.36%, #FB8246 100%);
+    border-radius: .8rem;
+    padding:1.5rem 4rem ;
+    color:#ffffff;
+    border: none;
+}
+.hero-section-container{
+    background-repeat: no-repeat;
+    background-image: url(../img/hero-section.png);
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.orange-border-button{
+    color: #FF5A07;
+    background-color: inherit;
+    border: .2rem solid #FC7938;
+    border-radius: .8rem;
+    padding: 1.8rem 4.8rem;
+}
+.music-desc{
+    
+    background-color: #EBEBEB;
+    border-radius: 1.6rem;
+    margin-top: -4rem;
+}
+/*************************
+...
+**************************/
+.current-music-play-btn{
+    background-image: url(../img/circle-icon.jpg);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.play-icon-current-music{
+    background-image: linear-gradient(180deg, rgba(2, 1, 0, 0.43) 0%, rgba(2, 1, 0, 0.43) 100%);
+    padding: 12.9rem;
+}
+.current-music-timer-bar{
+    background: #E0E0E0;
+    box-shadow: 0rem .3rem 1rem rgb(134 44 0 / 20%);
+    border-radius: 1.75rem;
+}
+.current-music-progress-bar{
+    width: 50%;
+    padding: 1.85rem;
+    background: linear-gradient(89.98deg, #FF5500 1.09%, #E04B00 99.98%);
+    border-radius: 1.75rem;
+}
