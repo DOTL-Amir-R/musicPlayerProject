@@ -46,101 +46,95 @@
         </div>
         <div class="music-and-arrow-container d-flex align-items-center gap-68 justify-content-center">
             <img class="arrow-orange margin-top-100" src="../img/left-arrow.svg"/>
-            <div class="music-card-container margin-top-100 d-flex gap-52">
-                <figure class="music-card d-flex flex-direction-column">
-                        <img src="../img/icon-1.png"/>
-                    <figcaption class="music-desc d-flex flex-direction-column">
-                        <div class="d-flex justify-content-center">
-                            <div class="play-icon">
-                                <img class="play-music-card" src="../img/play.svg"/>
-                            </div>
+            <div id="music-card-container" class="music-card-container flex-wrap margin-top-100 d-flex gap-52">
 
-                        </div>
-    
-                        <div class="f-size-16 f-weight-400 margin-left-16 margin-bot-10 margin-top-12">
-                            <img src="../img/mic-icon.svg"/>
-                            Shadmeher Aghili
-                        </div>
-                        <div class="f-size-14 f-weight-400 margin-left-16 margin-bot-17">
-                            <img src="../img/music-icon.svg"/>
-                            yakh zadam
-                        </div>
-                    </figcaption>
-                </figure>
-                <figure class="music-card d-flex flex-direction-column">
-                    <img src="../img/icon-1.png"/>
-                    <figcaption class="music-desc d-flex flex-direction-column">
-                        <div class="d-flex justify-content-center">
-                            <div class="play-icon">
-                                <img class="play-music-card" src="../img/play.svg"/>
-                            </div>
-                        </div>
-    
-                        <div class="f-size-16 f-weight-400 margin-left-16 margin-bot-10 margin-top-12">
-                            <img src="../img/mic-icon.svg"/>
-                            Shadmeher Aghili
-                        </div>
-                        <div class="f-size-14 f-weight-400 margin-left-16 margin-bot-17">
-                            <img src="../img/music-icon.svg"/>
-                            yakh zadam
-                        </div>
-                    </figcaption>
-                </figure>
-                <figure class="music-card d-flex flex-direction-column">
-                    <img src="../img/icon-1.png"/>
-                    <figcaption class="music-desc d-flex flex-direction-column">
-                        <div class="d-flex justify-content-center">
-                            <div class="play-icon">
-                                <img class="play-music-card" src="../img/play.svg"/>
-                            </div>
-                        </div>
-    
-                        <div class="f-size-16 f-weight-400 margin-left-16 margin-bot-10 margin-top-12">
-                            <img src="../img/mic-icon.svg"/>
-                            Shadmeher Aghili
-                        </div>
-                        <div class="f-size-14 f-weight-400 margin-left-16 margin-bot-17">
-                            <img src="../img/music-icon.svg"/>
-                            yakh zadam
-                        </div>
-                    </figcaption>
-                </figure>
             </div>
             <img class="arrow-orange margin-top-100" src="../img/right-arrow.svg"/>
         </div>
         <div class="current-music-section margin-top-126 d-flex justify-content-center f-weight-500 f-size-32">
             Current Music
         </div>
-        <div class="current-music-container d-flex gap-63">
-            <div class="current-music-play-btn margin-top-67">
-                <img class="play-icon-current-music " src="../img/big-play-icon.svg"/>
+        <div class="current-music-container d-flex gap-63 margin-bot-86 justify-content-center">
+            <audio id="audio-current"  src="http://dl.sakhamusic.ir/97/tir/02/Evan%20Band%20-%20Ahd%20Kardam%20(128).mp3"></audio>
+            <div id="current-music-play-btn" class="current-music-play-btn margin-top-67">
+                <img id="play-icon-current-music" class="play-icon-current-music " src="../img/pause-icon.svg"/>
             </div>
             <div class="current-music-details margin-top-100 width-63">
-                <div class="current-music-singer f-weight-400 f-size-36 black-333333 margin-bot-16">
-                    Mohsen Yeganeh
+                <div id="current-music-singer" class="current-music-singer f-weight-400 f-size-36 black-333333 margin-bot-16">
+                    Singer Name
                 </div>
-                <div class="current-music-name f-weight-400 f-size-24 gray-4F4F4F margin-bot-75">
-                    Behet Ghol Midam
+                <div id="current-music-name" class="current-music-name f-weight-400 f-size-24 gray-4F4F4F margin-bot-75">
+                    Music Name
                 </div>
                 <div class="current-music-time-container d-flex space-between margin-bot-8 margin-left-8 margin-right-8">
-                    <div class="current-music-time-passed f-weight-400 f-size-20 gray-828282">
-                        02 : 25
+                    <div id="current-music-time-passed" class="current-music-time-passed f-weight-400 f-size-20 gray-828282">
+                        00 : 00
                     </div>
-                    <div class="current-music-time-remaining f-weight-400 f-size-20 gray-828282">
-                        03 : 37
+                    <div id="current-music-time-remaining" class="current-music-time-remaining f-weight-400 f-size-20 gray-828282">
+                        00 : 00
                     </div>
                 </div>
                 <div class="current-music-timer-bar">
-                    <div class="current-music-progress-bar">
-
-                    </div>
+                    <input id="current-music-progress-bar-input" value="0" type="range" max="100" class="current-music-progress-bar-input"/>
+                    <div id="current-music-progress-bar" class="current-music-progress-bar"></div>
                 </div>
                 <div class="current-musics-btn d-flex align-items-center gap-40 margin-top-24">
-                    <img class="left-arrow-current-music-btn" src="../img/left-arrow-2.svg"/>
-                    <img class="play-current-music-btn" src="../img/play-music-current.svg"/>
-                    <img class="right-arrow-current-music-btn" src="../img/right-arrow-2.svg"/>
+                    <img id="prev-btn" class="left-arrow-current-music-btn cursor-pointer" src="../img/left-arrow-2.svg"/>
+                    <img id="play-btn" class="play-current-music-btn cursor-pointer" src="../img/pause-small-icon.svg"/>
+                    <img id="next-btn" class="right-arrow-current-music-btn cursor-pointer" src="../img/right-arrow-2.svg"/>
+                    <button id="shuffel-btn" class="shuffel-btn">shuffel</button>
+                    <button id="reapet-btn" class="reapet-btn">reapet</button>
+                    <input type="range" class="volume-input" id="volume-input" min="0" max="10"/>
                 </div>
+                
             </div>
         </div>
+        <div class="about-us-section margin-top-126 d-flex justify-content-center f-weight-500 f-size-32">
+            About Us
+        </div>
+        <div class="about-us-container d-flex flex-direction-row-reverse justify-content-center gap-64">
+            <img class="about-us-img margin-top-27 " src="../img/about-us-img.svg"/>
+            <div class="about-us-text width-48 f-size-20 f-weight-500 text-align-center justify-content-center d-flex flex-direction-column">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit sed duis viverra ullamcorper mollis.
+                 Amet diam blandit at donec ut sit porttitor.
+                 Nam diam amet, sit tellus in sed gravida. Tincidunt odio convallis enim leo integer viverra vitae.
+            </div>
+        </div>
+        <div class="contact-us-section margin-top-111 d-flex justify-content-center f-weight-500 f-size-32">
+            Contact Us
+        </div>
+        <div class="contact-us-inputs-container d-flex justify-content-center margin-top-74 gap-46 align-items-center margin-bot-187">
+            <img class="contact-us-img  " src="../img/contact-us-img.svg"/>
+            <div class="inputs-container d-flex flex-direction-column align-items-center">
+                <input class="input-email-contact-us f-weight-400" type="email"  placeholder="Enter Your Email"/>
+                <input class="input-write-message-contact-us f-weight-400 margin-top-24 " type="text"  placeholder="type your message here ..."/>
+                <button class="send-us-message-btn f-size-18 f-weight-400 margin-top-24 ">
+                    Send Message
+                </button>
+            </div>
+        </div>
+        <footer >
+            <ul class="main-footer background-gray-4F4F4F d-flex gap-50 margin-bot-20">
+                <li class="f-weight-400 f-size-18 white-F2F2F2 margin-left-48">
+                    home
+                </li>
+                <li class="f-weight-400 f-size-18 white-F2F2F2">
+                    musics
+                </li>
+                <li class="f-weight-400 f-size-18 white-F2F2F2">
+                    blog
+                </li>
+                <li class="f-weight-400 f-size-18 white-F2F2F2">
+                    about
+                </li>
+                <li class="f-weight-400 f-size-18 white-F2F2F2">
+                    contact
+                </li>
+            </ul>
+        </footer>
+        <div class="copy-right-logo-and-text f-weight-400 gray-4F4F4F f-size-16 margin-left-48 d-flex gap-12 align-items-center">
+            <div class="f-size-36">&copy;</div>  copy right All reserved ...
+        </div>
     </body>
+    <script type="module" src="../js/index.js"></script>
 </html>
