@@ -20,6 +20,7 @@ const nextBtn = document.getElementById('next-btn');
 const reapetBtn = document.getElementById('reapet-btn');
 let reapetMusicOn=true;
 const shuffelBtn = document.getElementById('shuffel-btn');
+let isShuffel = true
 const volumeInput = document.getElementById('volume-input');
 
 
@@ -40,6 +41,11 @@ function changeCurrentMusicByIndex(index){
 }
 
 
+
+
+
+
+
 export default function playCurrentMusic(){
     [...musicContainer.children].forEach((songElement)=>{
         songElement.addEventListener('click',()=>{
@@ -53,25 +59,21 @@ export default function playCurrentMusic(){
             currentAudio.src = currentMusic.audio;
             currentAudio.play().then(()=>{
                 currentMusicProgressBarInput.max = currentAudio.duration
+                
 
-                reapetBtn.addEventListener('click',()=>{
-                    
-                    if(reapetMusicOn){
-                        reapetMusicOn = false
-                        currentAudio.onended=()=>{
-                            currentAudio.play()
-                        }
-                        
-                    }else{
-                        currentAudio.onended=()=>{
-                            currentAudio.pause()
-                            reapetMusicOn = true
-                        }
-                    }
-                })
-
+                let currentMusicIndex = musics().findIndex((item)=> item.id === Number(currentMusic.id));
+                currentAudio.onended=()=>{
+                    currentMusicIndex = currentMusicIndex + 1
+                    currentMusic = musics()[currentMusicIndex]
+                    currentAudio.src = musics()[currentMusicIndex].audio
+                    rerenderingCurrentMusic(currentMusic)
+                    currentAudio.play().then(()=>{
+                        currentMusicProgressBarInput.max = currentAudio.duration
+                        makeTimeOfCurrentMusic(currentAudio)            
+                    })
+                }
                 prevBtn.addEventListener('click',()=>{
-                    let currentMusicIndex = musics().findIndex((item)=> item.id === Number(currentMusic.id));
+                    // let currentMusicIndex = musics().findIndex((item)=> item.id === Number(currentMusic.id));
 
                     if(currentMusicIndex === 0){
                         currentMusicIndex = musics().length-1
@@ -97,7 +99,7 @@ export default function playCurrentMusic(){
                     makeTheMusicPauseOrPlaySmallIcon(playBtn,currentAudio)
                 })
                 nextBtn.addEventListener('click',()=>{
-                    let currentMusicIndex = musics().findIndex((item)=> item.id === Number(currentMusic.id));
+                    // let currentMusicIndex = musics().findIndex((item)=> item.id === Number(currentMusic.id));
                     if(currentMusicIndex === musics().length-1){
                         currentMusicIndex = 0
                         currentMusic = musics()[currentMusicIndex]
@@ -120,7 +122,70 @@ export default function playCurrentMusic(){
                     }
 
                 });
+                reapetBtn.addEventListener('click',()=>{
+                    
+                    if(reapetMusicOn){
+                        reapetMusicOn = false
+                        currentAudio.onended=()=>{
+                            currentAudio.play()
+                        }
+                        reapetBtn.innerHTML = 'REAPET:ON'
+                        
+                    }else{
+                        reapetBtn.innerHTML = 'REAPET:OFF'
+                        currentAudio.onended=()=>{
+                            currentMusicIndex = currentMusicIndex + 1
+                            currentMusic = musics()[currentMusicIndex]
+                            currentAudio.src = musics()[currentMusicIndex].audio
+                            rerenderingCurrentMusic(currentMusic)
+                            currentAudio.play().then(()=>{
+                                currentMusicProgressBarInput.max = currentAudio.duration
+                                makeTimeOfCurrentMusic(currentAudio)            
+                            })
+                        }
+                        reapetMusicOn = true
+                    
+                    }
+                })
+                volumeInput.addEventListener('change',()=>{
+                    currentAudio.volume = volumeInput.value /10
 
+                })
+                shuffelBtn.addEventListener('click',()=>{
+                    if(isShuffel){
+                        isShuffel = false
+                        shuffelBtn.innerHTML = 'SHUFFEL:ON'
+                        currentAudio.onended=()=>{
+                            const musicArrayIndex = musicData().length- 1
+                            const randomIndex = Math.floor(Math.random() * musicArrayIndex)
+                            
+                            currentMusic = musics()[randomIndex]
+                            currentAudio.src = musics()[randomIndex].audio
+                            rerenderingCurrentMusic(currentMusic)
+                            currentAudio.play().then(()=>{
+                                currentMusicProgressBarInput.max = currentAudio.duration
+                                makeTimeOfCurrentMusic(currentAudio)            
+                            })
+                        }
+                    }else{
+                        shuffelBtn.innerHTML = 'SHUFFEL:OFF'
+                        currentAudio.onended=()=>{
+                            currentMusicIndex = currentMusicIndex + 1
+                            currentMusic = musics()[currentMusicIndex]
+                            console.log(currentMusicIndex)
+                            currentAudio.src = musics()[currentMusicIndex].audio
+                            rerenderingCurrentMusic(currentMusic)
+                            currentAudio.play().then(()=>{
+                                currentMusicProgressBarInput.max = currentAudio.duration
+                                makeTimeOfCurrentMusic(currentAudio)            
+                            })
+                        }
+                        
+                        isShuffel = true
+                    }
+
+
+                })
             
                 setInterval(()=>{
                     const widthProgressBar = (currentAudio.currentTime/currentAudio.duration)* 100;
